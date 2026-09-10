@@ -1,0 +1,183 @@
+<title>About — Condensed Milk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Syne:wght@600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root {
+  --bg:           #FFFBF4;
+  --bg-2:         #FFF5E8;
+  --surface:      #FFFFFF;
+  --surface-2:    #FFF2F7;
+  --text:         #2D1520;
+  --text-muted:   #6D4A58;
+  --accent-text:  #B5186A;
+  --accent-dark:  #8B0F52;
+  --accent-soft:  #FFE8F4;
+  --pink:         #FF6FA8;
+  --pink-text:    #B5186A;
+  --pink-soft:    #FFE8F4;
+  --border:       #E8D4DC;
+  --border-soft:  #F5EDF1;
+  --shadow:       rgba(255,111,168,0.12);
+  --grad-mark-a:  #8B0F52;
+  --grad-mark-b:  #B5186A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A0A12; --bg-2: #220F18;
+    --surface: #2A1020; --surface-2: #321528;
+    --text: #FFE8F4; --text-muted: #DDA0BC;
+    --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
+    --border: #4A1A30; --border-soft: #361222;
+    --shadow: rgba(0,0,0,0.4);
+    --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A0A12; --bg-2: #220F18;
+  --surface: #2A1020; --surface-2: #321528;
+  --text: #FFE8F4; --text-muted: #DDA0BC;
+  --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
+  --border: #4A1A30; --border-soft: #361222;
+  --shadow: rgba(0,0,0,0.4);
+  --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--text); color: var(--bg);
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.875rem;
+  border-radius: 0 0 10px 10px; text-decoration: none; z-index: 9999; transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 3px; border-radius: 6px; }
+
+.container { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--border);
+  padding-block: 1rem;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+
+.wordmark { text-decoration: none; display: flex; line-height: 1; }
+.wordmark-brand {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem;
+  color: var(--accent-text);
+  background: linear-gradient(90deg, var(--grad-mark-a) 0%, var(--grad-mark-b) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: 0.01em;
+}
+
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
+.nav-about {
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
+  color: var(--accent-text); text-decoration: none;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: #FFB3CF; color: #3A0A2A;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
+  padding: 0.55rem 1.25rem; border-radius: 999px; text-decoration: none;
+  transition: background 0.15s, transform 0.15s; white-space: nowrap; letter-spacing: 0.01em;
+}
+.nav-cta:hover { background: #ffa0bf; transform: translateY(-1px); }
+
+.about-page { padding-block: 6rem 5rem; }
+
+.about-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent-soft); border: 1.5px solid #FFB3CF;
+  border-radius: 999px; padding: 0.3rem 0.9rem 0.3rem 0.65rem; margin-bottom: 2rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+  color: var(--accent-text); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;
+}
+
+h1 {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 900;
+  font-size: clamp(2.4rem, 5.5vw, 3.5rem); line-height: 1.1;
+  letter-spacing: -0.02em; text-wrap: balance; margin-bottom: 2rem;
+}
+
+.placeholder-card {
+  background: var(--surface);
+  border: 1.5px dashed var(--border);
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.placeholder-icon { font-size: 2.5rem; line-height: 1; }
+
+.placeholder-label {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--text);
+}
+
+.placeholder-sub {
+  font-size: 0.95rem; color: var(--text-muted); max-width: 40ch; line-height: 1.7;
+}
+
+footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.footer-copy { font-size: 0.875rem; color: var(--text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
+}
+</style>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/condensed-milk-consulting/" class="wordmark" aria-label="Condensed Milk — home">
+      <span class="wordmark-brand">✿ Condensed Milk</span>
+    </a>
+    <div class="nav-right">
+      <a href="/condensed-milk-consulting/about.html" class="nav-about">About</a>
+      <a href="/condensed-milk-consulting/#contact" class="nav-cta">Get in touch ✦</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="about-page">
+  <div class="container">
+    <span class="about-eyebrow">★ About</span>
+    <h1>Coming soon.</h1>
+    <div class="placeholder-card">
+      <span class="placeholder-icon" aria-hidden="true">✦</span>
+      <span class="placeholder-label">This page is under construction.</span>
+      <p class="placeholder-sub">In the meantime, check out the work or send a message.</p>
+      <a href="/condensed-milk-consulting/#contact" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFB3CF;color:#3A0A2A;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;padding:0.75rem 1.6rem;border-radius:999px;text-decoration:none;margin-top:0.5rem;">Get in touch ✦</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--accent-text);background:linear-gradient(90deg,var(--grad-mark-a),var(--grad-mark-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" aria-label="Condensed Milk">Condensed Milk</span>
+    <span class="footer-copy">Kiki Almonte · Systems &amp; Automation · New York City</span>
+  </div>
+</footer>
