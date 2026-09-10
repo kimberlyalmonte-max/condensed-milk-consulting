@@ -212,7 +212,7 @@ nav {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.25rem;
   line-height: 1;
 }
 
@@ -222,21 +222,21 @@ nav {
 .wordmark-brand {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   color: var(--accent-text);  /* accessible fallback */
   background: linear-gradient(90deg, var(--grad-mark-a) 0%, var(--grad-mark-b) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .wordmark-person {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .nav-cta {
@@ -606,11 +606,12 @@ nav {
 
 /* color: var(--text-muted) → ~5.3:1 ✓ */
 .cs-situation-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--accent-text);
   display: block;
 }
 
@@ -844,7 +845,7 @@ footer {
   <div class="container nav-inner">
     <a href="#" class="wordmark" aria-label="Condensed Milk — home">
       <span class="wordmark-brand" aria-hidden="true">✿ Condensed Milk</span>
-      <span class="wordmark-person">Kiki Almonte · Systems &amp; Automation</span>
+      <span class="wordmark-person">Kiki Almonte</span>
     </a>
     <a href="#contact" class="nav-cta">Get in touch ✦</a>
   </div>
