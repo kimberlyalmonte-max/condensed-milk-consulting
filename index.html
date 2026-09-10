@@ -239,6 +239,22 @@ nav {
   letter-spacing: 0.01em;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-about {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-about:hover { color: var(--accent-text); }
+
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -844,10 +860,12 @@ footer {
 <nav aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#" class="wordmark" aria-label="Condensed Milk — home">
-      <span class="wordmark-brand" aria-hidden="true">✿ Condensed Milk</span>
-      <span class="wordmark-person">Kiki Almonte</span>
+      <span class="wordmark-brand">✿ Condensed Milk</span>
     </a>
-    <a href="#contact" class="nav-cta">Get in touch ✦</a>
+    <div class="nav-right">
+      <a href="/condensed-milk-consulting/about.html" class="nav-about">About</a>
+      <a href="#contact" class="nav-cta">Get in touch ✦</a>
+    </div>
   </div>
 </nav>
 
