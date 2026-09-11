@@ -47,32 +47,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:           #1A0A12;   /* deep rose-black */
-    --bg-2:         #220F18;
-    --surface:      #2A1020;
-    --surface-2:    #321528;
+    --bg:           #150810;
+    --bg-2:         #1E0E18;
+    --surface:      #2C1222;   /* more contrast against bg */
+    --surface-2:    #38182E;
     --text:         #FFE8F4;
-    --text-muted:   #DDA0BC;   /* ~8.9:1 on dark bg ✓ */
+    --text-muted:   #E0A8C8;
     --text-faint:   #9B6080;
     --accent:       #FF85B5;
-    --accent-text:  #FFB3CF;   /* light pink text on dark ✓ */
+    --accent-text:  #FFB3CF;
     --accent-dark:  #FFAAD4;
     --accent-soft:  #3A1428;
     --pink:         #FF85B5;
     --pink-text:    #FFB3CF;
-    --pink-soft:    #3A1428;
+    --pink-soft:    #3D1530;
     --purple:       #C87FFF;
-    --purple-soft:  #2A1A4A;
+    --purple-soft:  #2E1850;
     --sky:          #70CFFF;
     --sky-text:     #90DAFF;
     --sky-soft:     #0E2235;
     --peach:        #FFC8D8;
     --mint:         #7AE3D6;
-    --border:       #4A1A30;
-    --border-soft:  #361222;
+    --border:       #5C2040;   /* more visible borders */
+    --border-soft:  #3E1530;
     --tag-bg:       #3A1428;
     --tag-text:     #FFB3CF;
-    --shadow:       rgba(0,0,0,0.4);
+    --shadow:       rgba(0,0,0,0.5);
     --grad-a: #FFE8F4;
     --grad-b: #FFB3CF;
     --grad-c: #FF85B5;
@@ -81,12 +81,12 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg:           #1A0A12;
-  --bg-2:         #220F18;
-  --surface:      #2A1020;
-  --surface-2:    #321528;
+  --bg:           #150810;
+  --bg-2:         #1E0E18;
+  --surface:      #2C1222;
+  --surface-2:    #38182E;
   --text:         #FFE8F4;
-  --text-muted:   #DDA0BC;
+  --text-muted:   #E0A8C8;
   --text-faint:   #9B6080;
   --accent:       #FF85B5;
   --accent-text:  #FFB3CF;
@@ -94,19 +94,19 @@
   --accent-soft:  #3A1428;
   --pink:         #FF85B5;
   --pink-text:    #FFB3CF;
-  --pink-soft:    #3A1428;
+  --pink-soft:    #3D1530;
   --purple:       #C87FFF;
-  --purple-soft:  #2A1A4A;
+  --purple-soft:  #2E1850;
   --sky:          #70CFFF;
   --sky-text:     #90DAFF;
   --sky-soft:     #0E2235;
   --peach:        #FFC8D8;
   --mint:         #7AE3D6;
-  --border:       #4A1A30;
-  --border-soft:  #361222;
+  --border:       #5C2040;
+  --border-soft:  #3E1530;
   --tag-bg:       #3A1428;
   --tag-text:     #FFB3CF;
-  --shadow:       rgba(0,0,0,0.4);
+  --shadow:       rgba(0,0,0,0.5);
   --grad-a: #FFE8F4;
   --grad-b: #FFB3CF;
   --grad-c: #FF85B5;
@@ -229,6 +229,7 @@ nav {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .wordmark-person {
@@ -836,8 +837,9 @@ footer {
   .hero-layout { grid-template-columns: 1fr; }
   .hero-card { max-width: 480px; }
   .principles-grid { grid-template-columns: 1fr; }
-  .cs-card { grid-template-columns: 1fr; }
+  .cs-card { grid-template-columns: 1fr !important; display: flex; flex-direction: column; }
   .cs-left { border-right: none; border-bottom: 1.5px solid var(--border); }
+  .cs-right { display: flex; flex-direction: column; gap: 1.25rem; padding: 1.5rem; }
   .cs-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .contact-inner { grid-template-columns: 1fr; }
 }
