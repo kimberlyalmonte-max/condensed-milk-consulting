@@ -675,6 +675,22 @@ nav {
 }
 :root[data-theme="dark"] .cs-shift-text { color: var(--accent-text); }
 
+.contact-heading {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 50%, var(--grad-c) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.1em;
+  display: inline-block;
+}
+
 /* ── contact ── */
 .contact {
   padding-block: 5.5rem 5rem;
@@ -1036,7 +1052,7 @@ footer {
   <div class="container contact-inner">
     <div class="contact-left">
       <div>
-        <h2 id="contact-heading">What's eating your team's time?</h2>
+        <h2 id="contact-heading" class="contact-heading">What's eating your team's time?</h2>
       </div>
       <p class="body-text">If something is tedious, repeated, or just feels like it shouldn't require this much effort — that's usually fixable. I work with nonprofits, government agencies, and civic orgs that are doing important work and drowning in admin.</p>
       <p class="body-text">If your organization is working toward a more equitable world — in any corner of it — reach out.</p>
