@@ -1,0 +1,613 @@
+<title>Work — Condensed Milk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Syne:wght@600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root {
+  --bg:           #FFFBF4;
+  --bg-2:         #FFF5E8;
+  --surface:      #FFFFFF;
+  --surface-2:    #FFF2F7;
+  --text:         #2D1520;
+  --text-muted:   #6D4A58;
+  --text-faint:   #9B7080;
+  --accent:       #FF6FA8;
+  --accent-text:  #B5186A;
+  --accent-dark:  #8B0F52;
+  --accent-soft:  #FFE8F4;
+  --pink:         #FF6FA8;
+  --pink-text:    #B5186A;
+  --pink-soft:    #FFE8F4;
+  --purple:       #9B4FD4;
+  --purple-soft:  #F2E4FF;
+  --sky:          #5FC3FF;
+  --sky-text:     #0569A8;
+  --sky-soft:     #E4F5FF;
+  --border:       #E8D4DC;
+  --border-soft:  #F5EDF1;
+  --shadow:       rgba(255,111,168,0.12);
+  --grad-mark-a:  #8B0F52;
+  --grad-mark-b:  #B5186A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #150810; --bg-2: #1E0E18;
+    --surface: #2C1222; --surface-2: #38182E;
+    --text: #FFE8F4; --text-muted: #E0A8C8;
+    --text-faint: #9B6080;
+    --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
+    --accent-soft: #3A1428;
+    --pink-text: #FFB3CF; --pink-soft: #3D1530;
+    --purple: #C87FFF; --purple-soft: #2E1850;
+    --sky-text: #90DAFF; --sky-soft: #0E2235;
+    --border: #5C2040; --border-soft: #3E1530;
+    --shadow: rgba(0,0,0,0.5);
+    --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #150810; --bg-2: #1E0E18;
+  --surface: #2C1222; --surface-2: #38182E;
+  --text: #FFE8F4; --text-muted: #E0A8C8;
+  --text-faint: #9B6080;
+  --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
+  --accent-soft: #3A1428;
+  --pink-text: #FFB3CF; --pink-soft: #3D1530;
+  --purple: #C87FFF; --purple-soft: #2E1850;
+  --sky-text: #90DAFF; --sky-soft: #0E2235;
+  --border: #5C2040; --border-soft: #3E1530;
+  --shadow: rgba(0,0,0,0.5);
+  --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--text); color: var(--bg);
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.875rem;
+  border-radius: 0 0 10px 10px; text-decoration: none; z-index: 9999; transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
+:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 3px; border-radius: 6px; }
+
+.container { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+/* ── nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--border);
+  padding-block: 1rem;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.wordmark { text-decoration: none; display: flex; line-height: 1; }
+.wordmark-brand {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem;
+  color: var(--accent-text);
+  background: linear-gradient(90deg, var(--grad-mark-a) 0%, var(--grad-mark-b) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: 0.01em; white-space: nowrap;
+}
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
+.nav-link {
+  font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.9rem;
+  color: var(--text-muted); text-decoration: none;
+  transition: color 0.15s; white-space: nowrap;
+}
+.nav-link:hover { color: var(--accent-text); }
+.nav-link.active { font-weight: 700; color: var(--accent-text); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: #FFB3CF; color: #3A0A2A;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
+  padding: 0.55rem 1.25rem; border-radius: 999px; text-decoration: none;
+  transition: background 0.15s, transform 0.15s; white-space: nowrap; letter-spacing: 0.01em;
+}
+.nav-cta:hover { background: #ffa0bf; transform: translateY(-1px); }
+
+/* ── page header ── */
+.work-header {
+  padding-block: 5rem 4rem;
+  text-align: center;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+.section-label::before { content: '★'; font-size: 0.95rem; letter-spacing: 0; }
+
+.work-header h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--accent-text);
+  margin-bottom: 1rem;
+}
+
+.work-header-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+/* ── work grid ── */
+.work-section {
+  padding-block: 0 5rem;
+}
+
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── cards (same pattern as homepage) ── */
+.cs-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.cs-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--shadow);
+  border-color: var(--accent);
+}
+
+.cs-left {
+  padding: 2rem;
+  border-right: 1.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--surface-2);
+}
+
+.cs-platform {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.cs-situation-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  display: block;
+}
+
+.cs-headline {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.cs-right {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.cs-block { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.cs-block-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cs-built-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: none;
+}
+
+.cs-shift {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.cs-shift-pip {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-text), var(--pink-text));
+  flex-shrink: 0;
+  margin-top: 0.42rem;
+}
+
+.cs-shift-text {
+  font-size: 0.88rem;
+  color: var(--accent-text);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ── footer ── */
+footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
+.footer-inner {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.4rem; text-align: center;
+}
+.footer-copy { font-size: 0.875rem; color: var(--text-muted); }
+
+/* ── responsive ── */
+@media (max-width: 900px) {
+  .cs-card { grid-template-columns: 1fr !important; display: flex; flex-direction: column; }
+  .cs-left { border-right: none; border-bottom: 1.5px solid var(--border); }
+  .cs-right { padding: 1.5rem; }
+  .work-header { padding-block: 3.5rem 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
+}
+</style>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/condensed-milk-consulting/" class="wordmark" aria-label="Condensed Milk — home">
+      <span class="wordmark-brand">✿ Condensed Milk</span>
+    </a>
+    <div class="nav-right">
+      <a href="/condensed-milk-consulting/about.html" class="nav-link">About Me</a>
+      <a href="/condensed-milk-consulting/work.html" class="nav-link active">Work</a>
+      <a href="/condensed-milk-consulting/#contact" class="nav-cta">Let's talk ✦</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<header class="work-header">
+  <div class="container">
+    <p class="section-label">All work</p>
+    <h1>What I've built</h1>
+    <p class="work-header-sub">All of this was built inside one organization. The problems are common across mission-driven orgs. The solutions travel.</p>
+  </div>
+</header>
+
+<section class="work-section" aria-label="Project list">
+  <div class="container">
+    <div class="work-grid">
+
+      <!-- 1: Collabby + ALDS -->
+      <article class="cs-card" aria-label="AI tools for ELL educators">
+        <div class="cs-left">
+          <span class="cs-platform">AI · Claude API</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Teachers were spending planning time decoding government standards documents that took expertise just to navigate.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">Two AI chatbots that turn dense NYSED frameworks into plain-language answers. Collabby handles ELA standards, WIDA proficiency correlations, and bilingual resources for Spanish-speaking newcomers. The ALDS chatbot handles the Academic and Linguistic Demands framework, helping teachers understand the specific linguistic demands of individual standards. Both are fully WCAG-accessible and branded. Built on Claude with prompt caching, deployed on Netlify.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Teachers get answers in seconds instead of hunting through PDFs.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2: Sign-in sheets -->
+      <article class="cs-card" aria-label="Event sign-in auto-generator">
+        <div class="cs-left">
+          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Someone was manually creating sign-in sheets for every event — the morning of.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A Google Apps Script system that queries Salesforce every night for the next day's events, generates a formatted Excel spreadsheet and a branded print-ready PDF, then emails both to the right people automatically. Temporary Sheets are created for export and immediately trashed so nothing accumulates in Drive.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Zero manual sign-in sheet creation. Zero forgotten sheets. Zero morning scramble.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3: Zoom + Salesforce -->
+      <article class="cs-card" aria-label="Zoom and Salesforce event management">
+        <div class="cs-left">
+          <span class="cs-platform">Salesforce Apex · Zoom API</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Zoom had the attendance data. Salesforce had the registrations. They never talked to each other.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A full Apex event management system: automated registration, cancellation, waitlist, reminder, post-event survey, and resource emails across two event programs, each with its own email template family. Real-time seat tracking rolled up to Opportunities. Zoom API integration that creates meetings, syncs who actually attended, and catches recording viewers after the fact via a nightly batch. Native ICS calendar invites and Google Calendar links attached to every registration and reminder email.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">One source of truth for attendance. No manual emails, no manual cross-referencing, no forgotten Zoom links.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4: Events Analytics Dashboard -->
+      <article class="cs-card" aria-label="Events Analytics Dashboard">
+        <div class="cs-left">
+          <span class="cs-platform">Salesforce Apex · Visualforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Event data lived in Salesforce but there was no way to see trends, compare years, or understand what was working.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A Visualforce dashboard with 8 analysis tabs: overview key metrics, by event type, by topic, by day of week, by time of day, by venue, by grade band, and by member role. Year-over-year comparison on every tab. Filters by full year, fall, or spring semester. Rate badges surface attendance trends at a glance.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Program staff can see what's working and report on impact — without pulling a single Salesforce report.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5: Membership Intervention Dashboard -->
+      <article class="cs-card" aria-label="Membership Intervention Dashboard">
+        <div class="cs-left">
+          <span class="cs-platform">Salesforce Apex · Visualforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">There was no way to quickly see which members needed attention — over seats, lapsed, or downgraded — without running multiple reports by hand.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A Visualforce dashboard showing the full membership picture: members over their seat allocation flagged with which programs they exceeded, lapsed and downgraded members with year-over-year comparison, and individual member detail views with seat utilization bars, note history, contact info, and event attendance. Includes a non-member prospects section showing organizations that attended events without a membership. Owner assignments are editable inline.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Staff can see who needs attention and act from one screen.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6: Resource library -->
+      <article class="cs-card" aria-label="Member resource library">
+        <div class="cs-left">
+          <span class="cs-platform">WordPress · Google Drive · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Members couldn't self-serve. Staff was fielding the same "can you send me that resource?" emails on repeat.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A WordPress plugin wiring together Google OAuth, Salesforce, and Google Drive. Members sign in with their school email, the system verifies their membership tier in Salesforce, and they browse a grade-band-filtered resource library pulling files directly from Google Drive — all without touching staff. Every login and download is logged via webhook.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Self-service for 280+ member schools. Staff spends less time answering the same requests.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7: Interactive educator tools -->
+      <article class="cs-card" aria-label="Interactive educator tools">
+        <div class="cs-left">
+          <span class="cs-platform">WordPress · PHP</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Two complex educator workflows — ELL student identification and Regents transcript review — required navigating lengthy frameworks and doing checks by hand.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">Two interactive tools inside the member portal. The ELL identification tool guides educators step-by-step through the identification process for individual students, referencing the appropriate NYSED criteria at each stage. The Regents transcript audit tool helps staff review student transcripts against graduation requirements interactively, flagging gaps automatically.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Complex compliance workflows that required expertise to navigate become guided processes anyone on the team can follow.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8: Onsite PD feedback -->
+      <article class="cs-card" aria-label="Onsite PD feedback system">
+        <div class="cs-left">
+          <span class="cs-platform">Salesforce Apex · FormAssembly · LWC</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Feedback from in-person professional development sessions arrived in a form and had to be manually sorted before it was usable.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">FormAssembly connected to custom Salesforce objects. An Apex trigger automatically matches each submission to the correct parent session by school and date — creating the session record if it doesn't exist yet. A Lightning Web Component on the session record lets staff download all feedback as a formatted CSV with one click. Duplicate submissions from form reprocessing are handled via an external ID upsert.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Feedback arrives already organized. No manual sorting, no spreadsheet gymnastics.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9: Common App -->
+      <article class="cs-card" aria-label="Annual data collection automation">
+        <div class="cs-left">
+          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Each year, staff manually created a data collection spreadsheet for every school network — pulling campus data from Salesforce, pre-filling it, and emailing it out. Dozens of networks, done by hand.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A Google Apps Script system attached to an admin Google Sheet. Each row represents a network. A button pulls that network's campus data from Salesforce, generates a pre-filled spreadsheet, shares it with the listed contacts, and sends them the link — all in one step. Built to rerun safely: it checks for an existing sheet for the current school year before creating a new one.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">What took hours of manual work each year now runs in seconds per network.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10: LearnWorlds sync -->
+      <article class="cs-card" aria-label="LearnWorlds Salesforce sync">
+        <div class="cs-left">
+          <span class="cs-platform">Google Apps Script · LearnWorlds API · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">The learning platform had no idea which users were active members. Access was managed by hand.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A sync system running on three schedules: a daily light pass for same-day membership changes, a weekly sweep for new users, and a monthly full reconciliation. Domain-based lookup automatically matches users to their school's membership tier in Salesforce — no manual mapping required.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Membership changes in Salesforce reflect in the LMS within 24 hours, with no manual intervention.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11: Google Groups sync -->
+      <article class="cs-card" aria-label="Google Groups and Salesforce sync">
+        <div class="cs-left">
+          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Google Groups membership had to be manually updated whenever someone's access changed in Salesforce.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A sync that keeps Google Groups membership aligned with Salesforce data automatically — no manual adds or removes needed when someone joins, leaves, or changes programs.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Group membership stays accurate without anyone manually managing it.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12: Contact data quality -->
+      <article class="cs-card" aria-label="Contact data quality suite">
+        <div class="cs-left">
+          <span class="cs-platform">Salesforce Apex</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Years of data entry and staff turnover left a Salesforce org with duplicate contacts, bouncing addresses, and records linked to schools people had long since left.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A suite of scheduled data quality tools: a monthly duplicate merge batch with 7 matching rules (including fuzzy name matching and edit-distance typo detection on email domains); a nightly domain batch that catches email domain typos automatically and alerts on genuinely unknown domains; a twice-yearly MX record check that flags contacts at dead email domains before they bounce; and an inbound email service that parses forwarded bounce-back emails and marks the right contact automatically.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">The contact database stays clean without manual audits. Bad email addresses get caught before they cause problems.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13: Salesforce-connected calendar -->
+      <article class="cs-card" aria-label="Salesforce-connected calendar">
+        <div class="cs-left">
+          <span class="cs-platform">WordPress · Salesforce</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Events lived in Salesforce but the member portal had no calendar. Staff were maintaining two separate event lists to keep the website current.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A WordPress calendar that pulls event data directly from Salesforce. Events are entered once in Salesforce and appear on the member portal automatically — no second step, no copy-pasting, no risk of the two getting out of sync.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">One place to manage events. The website stays current automatically.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14: LW reporting -->
+      <article class="cs-card" aria-label="LearnWorlds reporting tool">
+        <div class="cs-left">
+          <span class="cs-platform">Google Apps Script · LearnWorlds API</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">LearnWorlds shows individual user progress but has no way to see course-level data — completion rates, average time spent, how many people even started.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">A Google Apps Script that pulls all user progress data from the LearnWorlds API into a structured Google Sheet, with a summary tab showing completion rates and average and median time spent per course. Handles rate limiting, pagination, and large datasets automatically so it can be rerun any time without manual intervention.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Course performance data that the LMS doesn't surface is now in a spreadsheet anyone on the team can read.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15: Google Sheets CMS -->
+      <article class="cs-card" aria-label="Google Sheets-powered content collections">
+        <div class="cs-left">
+          <span class="cs-platform">WordPress · Google Sheets API</span>
+          <span class="cs-situation-label">The situation</span>
+          <h2 class="cs-headline">Two curated content collections on the member portal required a developer to update — a bookshelf and an educator voices feed.</h2>
+        </div>
+        <div class="cs-right">
+          <div class="cs-block">
+            <span class="cs-block-label">What I built</span>
+            <p class="cs-built-text">Two WordPress features driven entirely by Google Sheets. Staff update a spreadsheet; the website updates automatically. No WordPress login, no developer needed. The bookshelf organizes curated books by identity and representation category. The educator voices feed displays article cards with author info and photos. Both are cached to keep load times fast.</p>
+          </div>
+          <div class="cs-shift">
+            <div class="cs-shift-pip" aria-hidden="true"></div>
+            <span class="cs-shift-text">Non-technical staff maintain both content collections independently, without touching the website.</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--accent-text);background:linear-gradient(90deg,var(--grad-mark-a),var(--grad-mark-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" aria-label="Condensed Milk">✿ Condensed Milk</span>
+    <span class="footer-copy">© 2026 Kiki Almonte · New York City</span>
+  </div>
+</footer>
