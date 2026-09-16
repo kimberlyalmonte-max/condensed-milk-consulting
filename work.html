@@ -210,10 +210,10 @@ nav {
 }
 
 .cs-headline {
-  font-family: 'Syne', sans-serif;
-  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.6;
   color: var(--text);
   text-wrap: balance;
 }
@@ -245,23 +245,27 @@ nav {
 
 .cs-shift {
   display: flex;
-  gap: 0.6rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 1rem;
 }
 
-.cs-shift-pip {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-text), var(--pink-text));
-  flex-shrink: 0;
-  margin-top: 0.42rem;
+.cs-shift::before {
+  content: 'THE RESULT';
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
 }
+
+.cs-shift-pip { display: none; }
 
 .cs-shift-text {
-  font-size: 0.88rem;
+  font-size: 0.875rem;
   color: var(--accent-text);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 700;
+  line-height: 1.65;
 }
 
 /* ── footer ── */
@@ -316,7 +320,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 1: Collabby + ALDS -->
       <article class="cs-card" aria-label="AI tools for ELL educators">
         <div class="cs-left">
-          <span class="cs-platform">AI · Claude API</span>
+          <span class="cs-platform">AI · Claude</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Teachers were spending planning time decoding government standards documents that took expertise just to navigate.</h2>
         </div>
@@ -335,14 +339,14 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 2: Sign-in sheets -->
       <article class="cs-card" aria-label="Event sign-in auto-generator">
         <div class="cs-left">
-          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-platform">Apps Script · Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Someone was manually creating sign-in sheets for every event — the morning of.</h2>
         </div>
         <div class="cs-right">
           <div class="cs-block">
             <span class="cs-block-label">What I built</span>
-            <p class="cs-built-text">A Google Apps Script system that queries Salesforce every night for the next day's events, generates a formatted Excel spreadsheet and a branded print-ready PDF, then emails both to the right people automatically. Temporary Sheets are created for export and immediately trashed so nothing accumulates in Drive.</p>
+            <p class="cs-built-text">A Apps Script system that queries Salesforce every night for the next day's events, generates a formatted Excel spreadsheet and a branded print-ready PDF, then emails both to the right people automatically. Temporary Sheets are created for export and immediately trashed so nothing accumulates in Drive.</p>
           </div>
           <div class="cs-shift">
             <div class="cs-shift-pip" aria-hidden="true"></div>
@@ -354,7 +358,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 3: Zoom + Salesforce -->
       <article class="cs-card" aria-label="Zoom and Salesforce event management">
         <div class="cs-left">
-          <span class="cs-platform">Salesforce Apex · Zoom API</span>
+          <span class="cs-platform">Salesforce · Zoom</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Zoom had the attendance data. Salesforce had the registrations. They never talked to each other.</h2>
         </div>
@@ -373,7 +377,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 4: Events Analytics Dashboard -->
       <article class="cs-card" aria-label="Events Analytics Dashboard">
         <div class="cs-left">
-          <span class="cs-platform">Salesforce Apex · Visualforce</span>
+          <span class="cs-platform">Salesforce · Visualforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Event data lived in Salesforce but there was no way to see trends, compare years, or understand what was working.</h2>
         </div>
@@ -392,7 +396,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 5: Membership Intervention Dashboard -->
       <article class="cs-card" aria-label="Membership Intervention Dashboard">
         <div class="cs-left">
-          <span class="cs-platform">Salesforce Apex · Visualforce</span>
+          <span class="cs-platform">Salesforce · Visualforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">There was no way to quickly see which members needed attention — over seats, lapsed, or downgraded — without running multiple reports by hand.</h2>
         </div>
@@ -411,7 +415,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 6: Resource library -->
       <article class="cs-card" aria-label="Member resource library">
         <div class="cs-left">
-          <span class="cs-platform">WordPress · Google Drive · Salesforce</span>
+          <span class="cs-platform">WordPress · Drive · Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Members couldn't self-serve. Staff was fielding the same "can you send me that resource?" emails on repeat.</h2>
         </div>
@@ -430,7 +434,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 7: Interactive educator tools -->
       <article class="cs-card" aria-label="Interactive educator tools">
         <div class="cs-left">
-          <span class="cs-platform">WordPress · PHP</span>
+          <span class="cs-platform">WordPress</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Two complex educator workflows — ELL student identification and Regents transcript review — required navigating lengthy frameworks and doing checks by hand.</h2>
         </div>
@@ -449,7 +453,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 8: Onsite PD feedback -->
       <article class="cs-card" aria-label="Onsite PD feedback system">
         <div class="cs-left">
-          <span class="cs-platform">Salesforce Apex · FormAssembly · LWC</span>
+          <span class="cs-platform">Salesforce · FormAssembly</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Feedback from in-person professional development sessions arrived in a form and had to be manually sorted before it was usable.</h2>
         </div>
@@ -468,14 +472,14 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 9: Common App -->
       <article class="cs-card" aria-label="Annual data collection automation">
         <div class="cs-left">
-          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-platform">Apps Script · Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Each year, staff manually created a data collection spreadsheet for every school network — pulling campus data from Salesforce, pre-filling it, and emailing it out. Dozens of networks, done by hand.</h2>
         </div>
         <div class="cs-right">
           <div class="cs-block">
             <span class="cs-block-label">What I built</span>
-            <p class="cs-built-text">A Google Apps Script system attached to an admin Google Sheet. Each row represents a network. A button pulls that network's campus data from Salesforce, generates a pre-filled spreadsheet, shares it with the listed contacts, and sends them the link — all in one step. Built to rerun safely: it checks for an existing sheet for the current school year before creating a new one.</p>
+            <p class="cs-built-text">A Apps Script system attached to an admin Google Sheet. Each row represents a network. A button pulls that network's campus data from Salesforce, generates a pre-filled spreadsheet, shares it with the listed contacts, and sends them the link — all in one step. Built to rerun safely: it checks for an existing sheet for the current school year before creating a new one.</p>
           </div>
           <div class="cs-shift">
             <div class="cs-shift-pip" aria-hidden="true"></div>
@@ -487,7 +491,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 10: LearnWorlds sync -->
       <article class="cs-card" aria-label="LearnWorlds Salesforce sync">
         <div class="cs-left">
-          <span class="cs-platform">Google Apps Script · LearnWorlds API · Salesforce</span>
+          <span class="cs-platform">Apps Script · LearnWorlds · Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">The learning platform had no idea which users were active members. Access was managed by hand.</h2>
         </div>
@@ -506,7 +510,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 11: Google Groups sync -->
       <article class="cs-card" aria-label="Google Groups and Salesforce sync">
         <div class="cs-left">
-          <span class="cs-platform">Google Apps Script · Salesforce</span>
+          <span class="cs-platform">Apps Script · Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Google Groups membership had to be manually updated whenever someone's access changed in Salesforce.</h2>
         </div>
@@ -525,7 +529,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 12: Contact data quality -->
       <article class="cs-card" aria-label="Contact data quality suite">
         <div class="cs-left">
-          <span class="cs-platform">Salesforce Apex</span>
+          <span class="cs-platform">Salesforce</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Years of data entry and staff turnover left a Salesforce org with duplicate contacts, bouncing addresses, and records linked to schools people had long since left.</h2>
         </div>
@@ -563,14 +567,14 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 14: LW reporting -->
       <article class="cs-card" aria-label="LearnWorlds reporting tool">
         <div class="cs-left">
-          <span class="cs-platform">Google Apps Script · LearnWorlds API</span>
+          <span class="cs-platform">Apps Script · LearnWorlds</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">LearnWorlds shows individual user progress but has no way to see course-level data — completion rates, average time spent, how many people even started.</h2>
         </div>
         <div class="cs-right">
           <div class="cs-block">
             <span class="cs-block-label">What I built</span>
-            <p class="cs-built-text">A Google Apps Script that pulls all user progress data from the LearnWorlds API into a structured Google Sheet, with a summary tab showing completion rates and average and median time spent per course. Handles rate limiting, pagination, and large datasets automatically so it can be rerun any time without manual intervention.</p>
+            <p class="cs-built-text">A Apps Script that pulls all user progress data from the LearnWorlds API into a structured Google Sheet, with a summary tab showing completion rates and average and median time spent per course. Handles rate limiting, pagination, and large datasets automatically so it can be rerun any time without manual intervention.</p>
           </div>
           <div class="cs-shift">
             <div class="cs-shift-pip" aria-hidden="true"></div>
@@ -582,7 +586,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <!-- 15: Google Sheets CMS -->
       <article class="cs-card" aria-label="Google Sheets-powered content collections">
         <div class="cs-left">
-          <span class="cs-platform">WordPress · Google Sheets API</span>
+          <span class="cs-platform">WordPress · Google Sheets</span>
           <span class="cs-situation-label">The situation</span>
           <h2 class="cs-headline">Two curated content collections on the member portal required a developer to update — a bookshelf and an educator voices feed.</h2>
         </div>
