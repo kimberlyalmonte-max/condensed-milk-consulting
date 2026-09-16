@@ -371,7 +371,7 @@ nav {
   max-width: 680px;
 }
 
-.hero-left { display: flex; flex-direction: column; gap: 1.75rem; }
+.hero-left { display: flex; flex-direction: column; gap: 1.75rem; align-items: center; text-align: center; }
 
 /* Gradient stops: #2D1A4A → #7B35CC → #B5186A — all pass 4.5:1 on --bg */
 .display-gradient {
@@ -390,6 +390,7 @@ nav {
   line-height: 1.75;
   font-weight: 400;
   max-width: 44ch;
+  text-align: left;
 }
 
 .hero-sub strong { color: var(--text); font-weight: 600; }
@@ -472,7 +473,7 @@ nav {
   border-top: 1.5px solid var(--border);
 }
 
-.principles-header { margin-bottom: 2.75rem; }
+.principles-header { margin-bottom: 2.75rem; text-align: center; }
 .principles-header h2 { margin-top: 0.4rem; }
 
 .principles-grid {
@@ -825,13 +826,9 @@ footer {
   .hero { padding-block: 3rem; }
   .display { font-size: 2.4rem; }
   .sp-d, .sp-e { display: none; }
-  .hero-left { align-items: center; text-align: center; }
-  .hero-sub { text-align: left; }
-  .hero-actions { justify-content: center; }
-  .principles-header { text-align: center; }
-  .cs-header { text-align: center; }
-  .cs-header-right { text-align: left; }
 }
+
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
