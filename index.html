@@ -246,7 +246,7 @@ nav {
   gap: 1.25rem;
 }
 
-.nav-about {
+.nav-link {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
@@ -255,7 +255,8 @@ nav {
   transition: color 0.15s;
   white-space: nowrap;
 }
-.nav-about:hover { color: var(--accent-text); }
+.nav-link:hover { color: var(--accent-text); }
+.nav-link.active { font-weight: 700; color: var(--accent-text); }
 
 .nav-cta {
   display: inline-flex;
@@ -856,7 +857,8 @@ footer {
       <span class="wordmark-brand">✿ Condensed Milk</span>
     </a>
     <div class="nav-right">
-      <a href="/condensed-milk-consulting/about.html" class="nav-about">About Me</a>
+      <a href="/condensed-milk-consulting/about.html" class="nav-link">About Me</a>
+      <a href="/condensed-milk-consulting/work.html" class="nav-link">Work</a>
       <a href="#contact" class="nav-cta">Let's talk ✦</a>
     </div>
   </div>
