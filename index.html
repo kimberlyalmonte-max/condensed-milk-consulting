@@ -253,6 +253,7 @@ nav {
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.15s;
+  white-space: nowrap;
 }
 .nav-about:hover { color: var(--accent-text); }
 
@@ -359,6 +360,15 @@ nav {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 3.5rem;
   align-items: center;
+}
+/* collapse to single column when no hero image is present */
+.hero-image:empty {
+  display: none;
+}
+.hero-image:empty ~ * ,
+.hero-layout:has(.hero-image:empty) {
+  grid-template-columns: 1fr;
+  max-width: 680px;
 }
 
 .hero-left { display: flex; flex-direction: column; gap: 1.75rem; }
@@ -815,6 +825,12 @@ footer {
   .hero { padding-block: 3rem; }
   .display { font-size: 2.4rem; }
   .sp-d, .sp-e { display: none; }
+  .hero-left { align-items: center; text-align: center; }
+  .hero-sub { text-align: left; }
+  .hero-actions { justify-content: center; }
+  .principles-header { text-align: center; }
+  .cs-header { text-align: center; }
+  .cs-header-right { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
