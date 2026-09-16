@@ -82,10 +82,13 @@ nav {
   letter-spacing: 0.01em; white-space: nowrap;
 }
 .nav-right { display: flex; align-items: center; gap: 1.25rem; }
-.nav-about {
-  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
-  color: var(--accent-text); text-decoration: none; white-space: nowrap;
+.nav-link {
+  font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.9rem;
+  color: var(--text-muted); text-decoration: none;
+  transition: color 0.15s; white-space: nowrap;
 }
+.nav-link:hover { color: var(--accent-text); }
+.nav-link.active { font-weight: 700; color: var(--accent-text); }
 .nav-cta {
   display: inline-flex; align-items: center; gap: 0.4rem;
   background: #FFB3CF; color: #3A0A2A;
@@ -247,7 +250,8 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
       <span class="wordmark-brand">✿ Condensed Milk</span>
     </a>
     <div class="nav-right">
-      <a href="/condensed-milk-consulting/about.html" class="nav-about">About Me</a>
+      <a href="/condensed-milk-consulting/about.html" class="nav-link active">About Me</a>
+      <a href="/condensed-milk-consulting/work.html" class="nav-link">Work</a>
       <a href="/condensed-milk-consulting/#contact" class="nav-cta">Let's talk ✦</a>
     </div>
   </div>
