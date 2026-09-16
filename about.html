@@ -24,22 +24,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1A0A12; --bg-2: #220F18;
-    --surface: #2A1020; --surface-2: #321528;
-    --text: #FFE8F4; --text-muted: #DDA0BC;
+    --bg: #150810; --bg-2: #1E0E18;
+    --surface: #2C1222; --surface-2: #38182E;
+    --text: #FFE8F4; --text-muted: #E0A8C8;
     --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
-    --border: #4A1A30; --border-soft: #361222;
-    --shadow: rgba(0,0,0,0.4);
+    --border: #5C2040; --border-soft: #3E1530;
+    --shadow: rgba(0,0,0,0.5);
     --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #1A0A12; --bg-2: #220F18;
-  --surface: #2A1020; --surface-2: #321528;
-  --text: #FFE8F4; --text-muted: #DDA0BC;
+  --bg: #150810; --bg-2: #1E0E18;
+  --surface: #2C1222; --surface-2: #38182E;
+  --text: #FFE8F4; --text-muted: #E0A8C8;
   --accent-text: #FFB3CF; --accent-dark: #FFAAD4;
-  --border: #4A1A30; --border-soft: #361222;
-  --shadow: rgba(0,0,0,0.4);
+  --border: #5C2040; --border-soft: #3E1530;
+  --shadow: rgba(0,0,0,0.5);
   --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
 }
 
@@ -81,13 +81,13 @@ nav {
   color: var(--accent-text);
   background: linear-gradient(90deg, var(--grad-mark-a) 0%, var(--grad-mark-b) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01em; white-space: nowrap;
 }
 
 .nav-right { display: flex; align-items: center; gap: 1.25rem; }
 .nav-about {
   font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
-  color: var(--accent-text); text-decoration: none;
+  color: var(--accent-text); text-decoration: none; white-space: nowrap;
 }
 .nav-cta {
   display: inline-flex; align-items: center; gap: 0.4rem;
@@ -100,18 +100,18 @@ nav {
 
 .about-page { padding-block: 6rem 5rem; }
 
-.about-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: var(--accent-soft); border: 1.5px solid #FFB3CF;
-  border-radius: 999px; padding: 0.3rem 0.9rem 0.3rem 0.65rem; margin-bottom: 2rem;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-  color: var(--accent-text); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;
-}
-
-h1 {
-  font-family: 'Fraunces', Georgia, serif; font-weight: 900;
-  font-size: clamp(2.4rem, 5.5vw, 3.5rem); line-height: 1.1;
-  letter-spacing: -0.02em; text-wrap: balance; margin-bottom: 2rem;
+.pull-quote {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.35;
+  color: var(--text);
+  text-wrap: balance;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 820px;
+  margin-inline: auto;
 }
 
 .placeholder-card {
@@ -119,7 +119,6 @@ h1 {
   border: 1.5px dashed var(--border);
   border-radius: 24px;
   padding: 4rem 3rem;
-  margin-top: 3rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -137,8 +136,23 @@ h1 {
   font-size: 0.95rem; color: var(--text-muted); max-width: 40ch; line-height: 1.7;
 }
 
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: #FFB3CF; color: #3A0A2A;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
+  padding: 0.75rem 1.6rem; border-radius: 999px; text-decoration: none;
+  transition: background 0.15s, transform 0.15s; margin-top: 0.5rem;
+}
+.btn-primary:hover { background: #ffa0bf; transform: translateY(-1px); }
+
 footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
-.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
 .footer-copy { font-size: 0.875rem; color: var(--text-muted); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -155,21 +169,22 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
     </a>
     <div class="nav-right">
       <a href="/condensed-milk-consulting/about.html" class="nav-about">About Me</a>
-      <a href="/condensed-milk-consulting/#contact" class="nav-cta">Get in touch ✦</a>
+      <a href="/condensed-milk-consulting/#contact" class="nav-cta">Let's talk ✦</a>
     </div>
   </div>
 </nav>
 
 <main id="main-content">
-<section class="about-page">
+<section class="about-page" aria-labelledby="about-heading">
   <div class="container">
-    <span class="about-eyebrow">★ About Me</span>
-    <h1>I believe the organizations trying to make things better shouldn't have to choose between a functioning tech stack and their mission budget.</h1>
+    <blockquote class="pull-quote">
+      "I believe the organizations trying to make things better shouldn't have to choose between a functioning tech stack and their mission budget."
+    </blockquote>
     <div class="placeholder-card">
       <span class="placeholder-icon" aria-hidden="true">✦</span>
-      <span class="placeholder-label">This page is under construction.</span>
+      <span class="placeholder-label" id="about-heading">This page is under construction.</span>
       <p class="placeholder-sub">In the meantime, check out the work or send a message.</p>
-      <a href="/condensed-milk-consulting/#contact" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFB3CF;color:#3A0A2A;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;padding:0.75rem 1.6rem;border-radius:999px;text-decoration:none;margin-top:0.5rem;">Get in touch ✦</a>
+      <a href="/condensed-milk-consulting/#contact" class="btn-primary">Let's talk ✦</a>
     </div>
   </div>
 </section>
@@ -177,7 +192,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
 
 <footer>
   <div class="container footer-inner">
-    <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--accent-text);background:linear-gradient(90deg,var(--grad-mark-a),var(--grad-mark-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" aria-label="Condensed Milk">Condensed Milk</span>
-    <span class="footer-copy">Kiki Almonte · Systems &amp; Automation · New York City</span>
+    <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--accent-text);background:linear-gradient(90deg,var(--grad-mark-a),var(--grad-mark-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" aria-label="Condensed Milk">✿ Condensed Milk</span>
+    <span class="footer-copy">© 2026 Kiki Almonte · New York City</span>
   </div>
 </footer>
