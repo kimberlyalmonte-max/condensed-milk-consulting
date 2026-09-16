@@ -417,50 +417,16 @@ nav {
 }
 .btn-ghost:hover { color: var(--accent-text); }
 
-/* hero stats card */
-.hero-card {
-  background: var(--surface-2);
-  border: 1.5px solid var(--border);
-  border-radius: 24px;
-  padding: 0.5rem;
-  box-shadow: 0 8px 32px var(--shadow);
-}
-
-.hero-card-inner { display: flex; flex-direction: column; }
-
-.hero-stat {
+/* hero image placeholder — replaced by an <img> when the illustration is ready */
+.hero-image {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 1.25rem 1.5rem;
-  border-radius: 18px;
-  transition: background 0.15s;
+  align-items: center;
+  justify-content: center;
 }
-.hero-stat:hover { background: var(--surface-2); }
-
-/* stat-num: Nunito 800 — rounder and much more legible than Syne 800 at display size.
-   Solid color rather than gradient so it doesn't visually vibrate. */
-.stat-num {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 2.1rem;
-  line-height: 1;
-  color: var(--accent-text);
-  font-variant-numeric: tabular-nums;
-}
-
-/* color: var(--text-muted) → ~5.3:1 ✓ */
-.stat-label {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  max-width: 28ch;
-}
-
-.stat-divider {
-  height: 1.5px;
-  background: var(--border-soft);
-  margin-inline: 1.5rem;
+.hero-image img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
 }
 
 /* ── section label ──
@@ -835,7 +801,7 @@ footer {
 /* ── responsive ── */
 @media (max-width: 900px) {
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-card { max-width: 480px; }
+  .hero-image { display: none; }
   .principles-grid { grid-template-columns: 1fr; }
   .cs-card { grid-template-columns: 1fr !important; display: flex; flex-direction: column; }
   .cs-left { border-right: none; border-bottom: 1.5px solid var(--border); }
@@ -894,26 +860,14 @@ footer {
           <span class="display-gradient">Tell me what's<br>slowing you down.</span>
         </h1>
         <p class="hero-sub">
-          You don't need an agency. You need someone who knows your tools, builds the thing, and doesn't charge you for three layers of project management. I work with nonprofits, government agencies, and civic orgs — and I keep it <strong>affordable on purpose</strong>, because the organizations doing the most important work are usually the ones with the least to spend.
+          The organizations doing the most important work are usually the ones with the least to spend. I build systems that actually fit your situation — sometimes that's using what you have, sometimes it's simplifying to something better. I don't get paid to recommend anything.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Let's talk ✦</a>
           <a href="#work" class="btn-ghost">See my work ↓</a>
         </div>
       </div>
-      <div class="hero-card" role="list" aria-label="At a glance">
-        <div class="hero-card-inner">
-          <div class="hero-stat" role="listitem">
-            <span class="stat-num" aria-label="15 plus">15+</span>
-            <span class="stat-label">automation and integration projects shipped to production</span>
-          </div>
-          <div class="stat-divider" role="separator"></div>
-          <div class="hero-stat" role="listitem">
-            <span class="stat-num">$0</span>
-            <span class="stat-label">in new software licenses required for most projects</span>
-          </div>
-        </div>
-      </div>
+      <div class="hero-image" aria-hidden="true"></div>
     </div>
   </div>
 </header>
