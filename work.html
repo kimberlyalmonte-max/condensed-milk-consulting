@@ -25,11 +25,16 @@
   --grad-mark-a:  #8B0F52;
   --grad-mark-b:  #B5186A;
 
-  /* section gradient colors */
-  --wc-top:   #FFFBF4;
-  --wc-mid:   #FFF2F7;
-  --wc-bot:   #FFE4F2;
-  --wc-bot-text: #8B0F52;
+  /* section gradient colors — cream → bubblegum → rose */
+  --wc-top:        #FFF8EE;
+  --wc-top-text:   #6D4A58;
+  --wc-mid:        #FFD4EE;
+  --wc-mid-text:   #5A2040;
+  --wc-bot:        #F0A0CC;
+  --wc-bot-text:   #5A0030;
+  --wc-label-top:  #9D7A88;
+  --wc-label-mid:  #7A3060;
+  --wc-label-bot:  #6B0040;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,8 +46,16 @@
     --border: #5C2040; --border-soft: #3E1530;
     --shadow: rgba(0,0,0,0.5);
     --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
-    --wc-top: #1E0E18; --wc-mid: #2C1222; --wc-bot: #3A1830;
-    --wc-bot-text: #FFB3CF;
+    /* dark gradient — plum → midnight → teal */
+    --wc-top:       #1A0B2E;
+    --wc-top-text:  #C4A0D8;
+    --wc-mid:       #0A1E2C;
+    --wc-mid-text:  #90C8D8;
+    --wc-bot:       #062018;
+    --wc-bot-text:  #40D4A0;
+    --wc-label-top: #8870A0;
+    --wc-label-mid: #5090A8;
+    --wc-label-bot: #28A878;
   }
 }
 :root[data-theme="dark"] {
@@ -53,8 +66,15 @@
   --border: #5C2040; --border-soft: #3E1530;
   --shadow: rgba(0,0,0,0.5);
   --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
-  --wc-top: #1E0E18; --wc-mid: #2C1222; --wc-bot: #3A1830;
-  --wc-bot-text: #FFB3CF;
+  --wc-top:       #1A0B2E;
+  --wc-top-text:  #C4A0D8;
+  --wc-mid:       #0A1E2C;
+  --wc-mid-text:  #90C8D8;
+  --wc-bot:       #062018;
+  --wc-bot-text:  #40D4A0;
+  --wc-label-top: #8870A0;
+  --wc-label-mid: #5090A8;
+  --wc-label-bot: #28A878;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -167,7 +187,7 @@ nav {
 
 .wc-top {
   background: var(--wc-top);
-  border-bottom: 1.5px solid var(--border-soft);
+  border-bottom: 1.5px solid rgba(0,0,0,0.06);
   padding: 1.25rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -180,7 +200,7 @@ nav {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--wc-label-top);
 }
 
 .wc-situation-label {
@@ -189,8 +209,7 @@ nav {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-text);
-  opacity: 0.7;
+  color: var(--wc-label-top);
 }
 
 .wc-headline {
@@ -198,12 +217,12 @@ nav {
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--text);
+  color: var(--wc-top-text);
 }
 
 .wc-mid {
   background: var(--wc-mid);
-  border-bottom: 1.5px solid var(--border-soft);
+  border-bottom: 1.5px solid rgba(0,0,0,0.06);
   padding: 1.125rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -225,17 +244,15 @@ nav {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--text-muted);
 }
 
-.wc-bot .wc-label {
-  color: var(--wc-bot-text);
-  opacity: 0.7;
-}
+.wc-top .wc-label { color: var(--wc-label-top); }
+.wc-mid .wc-label { color: var(--wc-label-mid); }
+.wc-bot .wc-label { color: var(--wc-label-bot); }
 
 .wc-text {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--wc-mid-text);
   line-height: 1.7;
 }
 
@@ -289,9 +306,7 @@ footer { border-top: 1.5px solid var(--border); padding-block: 1.5rem; }
 
   <header class="work-header">
     <div class="container work-header-inner">
-      <span class="page-label">Selected work</span>
       <h1 class="page-title">What I've built</h1>
-      <p class="page-subtitle">A few examples of what this looks like in practice.</p>
     </div>
   </header>
 
