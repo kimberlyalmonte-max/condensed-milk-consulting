@@ -25,16 +25,12 @@
   --grad-mark-a:  #8B0F52;
   --grad-mark-b:  #B5186A;
 
-  /* section gradient colors — cream → bubblegum → rose */
-  --wc-top:        #FFF8EE;
-  --wc-top-text:   #6D4A58;
-  --wc-mid:        #FFD4EE;
-  --wc-mid-text:   #5A2040;
-  --wc-bot:        #F0A0CC;
-  --wc-bot-text:   #5A0030;
-  --wc-label-top:  #9D7A88;
-  --wc-label-mid:  #7A3060;
-  --wc-label-bot:  #6B0040;
+  --card-grad: linear-gradient(180deg, #FFF8EE 0%, #FFD4EE 55%, #F0A0CC 100%);
+  --card-text: #3A0A20;
+  --card-text-muted: #6B2040;
+  --card-label: #8B3060;
+  --card-result: #5A0030;
+  --card-divider: rgba(160, 60, 100, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,16 +42,13 @@
     --border: #5C2040; --border-soft: #3E1530;
     --shadow: rgba(0,0,0,0.5);
     --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
-    /* dark gradient — plum → midnight → teal */
-    --wc-top:       #1A0B2E;
-    --wc-top-text:  #C4A0D8;
-    --wc-mid:       #0A1E2C;
-    --wc-mid-text:  #90C8D8;
-    --wc-bot:       #062018;
-    --wc-bot-text:  #40D4A0;
-    --wc-label-top: #8870A0;
-    --wc-label-mid: #5090A8;
-    --wc-label-bot: #28A878;
+    /* dark: deep purple → dark navy → dark teal */
+    --card-grad: linear-gradient(180deg, #16082A 0%, #0C1428 55%, #081E1C 100%);
+    --card-text: #E8D4F4;
+    --card-text-muted: #A8B8D0;
+    --card-label: #7890A8;
+    --card-result: #50D4A8;
+    --card-divider: rgba(80, 100, 140, 0.2);
   }
 }
 :root[data-theme="dark"] {
@@ -66,15 +59,12 @@
   --border: #5C2040; --border-soft: #3E1530;
   --shadow: rgba(0,0,0,0.5);
   --grad-mark-a: #FFB3CF; --grad-mark-b: #FF85B5;
-  --wc-top:       #1A0B2E;
-  --wc-top-text:  #C4A0D8;
-  --wc-mid:       #0A1E2C;
-  --wc-mid-text:  #90C8D8;
-  --wc-bot:       #062018;
-  --wc-bot-text:  #40D4A0;
-  --wc-label-top: #8870A0;
-  --wc-label-mid: #5090A8;
-  --wc-label-bot: #28A878;
+  --card-grad: linear-gradient(180deg, #16082A 0%, #0C1428 55%, #081E1C 100%);
+  --card-text: #E8D4F4;
+  --card-text-muted: #A8B8D0;
+  --card-label: #7890A8;
+  --card-result: #50D4A8;
+  --card-divider: rgba(80, 100, 140, 0.2);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -183,11 +173,12 @@ nav {
   box-shadow: 0 2px 12px var(--shadow);
   display: flex;
   flex-direction: column;
+  background: var(--card-grad);
 }
 
 .wc-top {
-  background: var(--wc-top);
-  border-bottom: 1.5px solid rgba(0,0,0,0.06);
+  background: transparent;
+  border-bottom: 1px solid var(--card-divider);
   padding: 1.25rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -200,7 +191,7 @@ nav {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--wc-label-top);
+  color: var(--card-label);
 }
 
 .wc-situation-label {
@@ -209,7 +200,7 @@ nav {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--wc-label-top);
+  color: var(--card-label);
 }
 
 .wc-headline {
@@ -217,12 +208,12 @@ nav {
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--wc-top-text);
+  color: var(--card-text);
 }
 
 .wc-mid {
-  background: var(--wc-mid);
-  border-bottom: 1.5px solid rgba(0,0,0,0.06);
+  background: transparent;
+  border-bottom: 1px solid var(--card-divider);
   padding: 1.125rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -231,7 +222,7 @@ nav {
 }
 
 .wc-bot {
-  background: var(--wc-bot);
+  background: transparent;
   padding: 1.125rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -244,15 +235,12 @@ nav {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  color: var(--card-label);
 }
-
-.wc-top .wc-label { color: var(--wc-label-top); }
-.wc-mid .wc-label { color: var(--wc-label-mid); }
-.wc-bot .wc-label { color: var(--wc-label-bot); }
 
 .wc-text {
   font-size: 0.875rem;
-  color: var(--wc-mid-text);
+  color: var(--card-text-muted);
   line-height: 1.7;
 }
 
@@ -260,7 +248,7 @@ nav {
   font-family: 'Nunito', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--wc-bot-text);
+  color: var(--card-result);
   line-height: 1.6;
 }
 
